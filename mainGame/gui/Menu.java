@@ -185,7 +185,7 @@ public class Menu {
 			g.drawString("Waves:", 100, 160);
 			g.setFont(font2);
 			g.drawString(
-					" Within Waves, your goal is to avoid enemies until the player is transported to the new level. After beating 5 levels,",
+					" Withn Waves, your goal is to avoid enemies until the player is transported to the new level. After beating 5 levels,",
 					100, 190);
 			g.drawString(" the next level will be a boss fight that rewards you with a single use Upgrade if you manage to defeate one.",
 					100, 220);
