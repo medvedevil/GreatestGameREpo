@@ -103,59 +103,59 @@ public class Menu {
 			Font font5 = new Font("Amoebic", 1, 60);
 
 			g.setFont(font4);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("PlayerKnown's BattleLands", 130, 70);
 
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(30, 90, 1220, 120);
 			g.setFont(font);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Waves", 475, 185);
 
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(30, 240, 600, 120);
 			g.setFont(font3);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Join", 275, 350);
 			g.setFont(font5);
 			g.drawString("Multiplayer:", 170, 290);
 			g.drawString("Multiplayer:", 790, 290);
 			
 			
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(640, 240, 610, 120);
 			g.setFont(font3);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Host", 900, 350);
 
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(70, 390, 450, 180);
 			g.setFont(font2);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Bosses", 180, 500);
 
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(760, 390, 450, 180);
 			g.setFont(font2);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Survival", 860, 500);
 
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(40, 600, 380, 90);
 			g.setFont(font3);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Credits", 145, 660);
 
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(440, 600, 380, 90);
 			g.setFont(font3);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Help", 580, 660);
 
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(840, 600, 390, 90);
 			g.setFont(font3);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Quit", 985, 660);
 
 		} else if (game.gameState == STATE.Help) {// if the user clicks on
@@ -167,7 +167,7 @@ public class Menu {
 			img = null;
 
 			try {
-				URL imageURL = Game.class.getResource("images/backgroundgif.gif");
+				URL imageURL = Game.class.getResource("images/dust-particles.png");
 				img = Toolkit.getDefaultToolkit().getImage(imageURL);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -177,37 +177,33 @@ public class Menu {
 			Font font2 = new Font("impact", 1, 20);
 
 			g.setFont(font);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Help", 600, 46);
 
-			g.drawString("Use arrow keys to move the player.", 400, 100);
+			g.drawString("To move the player you use either the arrow keys or the WASD keys.", 100, 100);
 			g.setFont(font);
 			g.drawString("Waves:", 100, 160);
 			g.setFont(font2);
-			g.drawString(
-					" Within Waves, your goal is to avoid enemies until the player is transported to the new level. After beating 5 levels,",
+			g.drawString(" In this mode, your goal is to avoid enemies in order to advance levels, every 5th level you will encounter a boss, and ",
 					100, 190);
-			g.drawString(" the next level will be a boss fight that rewards you with a single use Upgrade if you manage to defeate one.",
+			g.drawString(" exactly as the normal levels your goal is to avoid being hit by a boss for a certain period of time to advance a",
 					100, 220);
-			 g.drawString("You can trigger your upgrades by pressing shift", 100, 250);
+			 g.drawString(" level. Upgrades obtained after completing a boss level can be used by pressing the shift key", 100, 250);
 			g.setFont(font);
 			g.drawString("Bosses:", 100, 320);
 			g.setFont(font2);
-			g.drawString(
-					"Within Bosses, your goal is to take an endless amount of bosses from the Waves game mode and survive. As long",
+			g.drawString(" Within Bosses, your goal is similar to Waves but instead of having bosses every 5th level, every level will be a boss.",
 					100, 350);
-			g.drawString(" as possible to get first place on the leaderboard!", 100, 380);
+			g.drawString(" There is an unlimited ammount of bosses so your objective is to obtain the highest score by surviving the longest.", 100, 380);
 			g.setFont(font);
 			g.drawString("Survival:", 100, 450);
 			g.setFont(font2);
-			g.drawString(
-					" Within Survival, your goal is to survive as long as possible while enemies spawn and try to kill you. Pickups are available",
+			g.drawString(" Within Survival, your goal is to survive as long as possible while enemies spawn and try to kill you. Poewr-ups are available",
 					100, 480);
-			g.drawString(
-					" to help you stay alive. If you pick up ham, you regain health, if you pick up shoes, you earn a light speed boost and if you ",
+			g.drawString(" to help you stay alive. If you pick up a ham, you regain health, if you pick up shoes, you earn a light speed boost and if you ",
 					100, 510);
-			g.drawString("pick up a coin, you earn add 1000 points to your score. If you pick up a coin, you earn add 1000 points to your score.", 100, 540);
-			g.drawString("Press the m key to mute the music." , 100, 590);
+			g.drawString("pick up a coin, you earn \"add 1000\" points to your score.", 100, 540);
+			g.drawString("To mute the sound in game press the m key" , 100, 590);
 			g.setFont(font2);
 			g.setColor(Color.white);
 			g.drawRect(566, 590, 133, 42);
