@@ -63,7 +63,7 @@ public class MouseListener extends MouseAdapter {
 					game.gameState = STATE.Menu;
 				} else if (player.checkGame() == "survival") {
 					spawnSurvival.restart();
-					game.gameState = STATE.Leaderboard;
+					game.gameState = STATE.Menu;
 				} else if (player.checkGame() == "bosses") {
 					spawnBosses.restart();
 					game.gameState = STATE.Menu;
