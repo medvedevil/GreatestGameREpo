@@ -103,59 +103,59 @@ public class Menu {
 			Font font5 = new Font("Amoebic", 1, 60);
 
 			g.setFont(font4);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("PlayerKnown's BattleLands", 130, 70);
 
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(30, 90, 1220, 120);
 			g.setFont(font);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Waves", 475, 185);
 
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(30, 240, 600, 120);
 			g.setFont(font3);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Join", 275, 350);
 			g.setFont(font5);
 			g.drawString("Multiplayer:", 170, 290);
 			g.drawString("Multiplayer:", 790, 290);
 			
 			
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(640, 240, 610, 120);
 			g.setFont(font3);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Host", 900, 350);
 
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(70, 390, 450, 180);
 			g.setFont(font2);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Bosses", 180, 500);
 
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(760, 390, 450, 180);
 			g.setFont(font2);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Survival", 860, 500);
 
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(40, 600, 380, 90);
 			g.setFont(font3);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Credits", 145, 660);
 
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(440, 600, 380, 90);
 			g.setFont(font3);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Help", 580, 660);
 
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawRect(840, 600, 390, 90);
 			g.setFont(font3);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Quit", 985, 660);
 
 		} else if (game.gameState == STATE.Help) {// if the user clicks on
@@ -167,7 +167,7 @@ public class Menu {
 			img = null;
 
 			try {
-				URL imageURL = Game.class.getResource("images/backgroundgif.gif");
+				URL imageURL = Game.class.getResource("images/dust-particles.png");
 				img = Toolkit.getDefaultToolkit().getImage(imageURL);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -177,7 +177,7 @@ public class Menu {
 			Font font2 = new Font("impact", 1, 20);
 
 			g.setFont(font);
-			g.setColor(Color.orange);
+			g.setColor(Color.WHITE);
 			g.drawString("Help", 600, 46);
 
 			g.drawString("To move the player you use either the arrow keys or the WASD keys.", 100, 100);
