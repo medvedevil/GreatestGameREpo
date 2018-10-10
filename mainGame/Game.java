@@ -286,8 +286,8 @@ public class Game extends Canvas implements Runnable {
 		} else {
 			this.setVisible(true);
 			this.setEnabled(true);
-			if (!this.hasFocus())
-				this.requestFocus();
+			/*if (!this.hasFocus())
+				this.requestFocus();*/
 			
 			/*
 			 * BufferStrategies are used to prevent screen tearing. In other words,
