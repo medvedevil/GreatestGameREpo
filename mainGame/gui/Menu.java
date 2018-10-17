@@ -53,7 +53,7 @@ public class Menu {
 		img2 = null;
 
 		try {
-			URL imageURL = Game.class.getResource("images/backgroundgif.gif");
+			URL imageURL = Game.class.getResource("images/dust-particles.png");
 			img = Toolkit.getDefaultToolkit().getImage(imageURL);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -70,12 +70,12 @@ public class Menu {
 	}
 
 	public void addColors() {
-		colorPick.add(Color.white);
-		colorPick.add(Color.white);
-		colorPick.add(Color.yellow);
-		colorPick.add(Color.yellow);
-		colorPick.add(Color.orange);
-		colorPick.add(Color.orange);
+		colorPick.add(Color.WHITE);
+		colorPick.add(Color.WHITE);
+		colorPick.add(Color.RED);
+		colorPick.add(Color.RED);
+		colorPick.add(Color.BLUE);
+		colorPick.add(Color.BLUE);
 	}
 
 	public void tick() {
@@ -229,7 +229,7 @@ public class Menu {
 			hoffmanpic = null;
 
 			try {
-				URL imageURL = Game.class.getResource("images/backgroundgif.gif");
+				URL imageURL = Game.class.getResource("images/dust-particles.png");
 				img = Toolkit.getDefaultToolkit().getImage(imageURL);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -275,7 +275,7 @@ public class Menu {
 			Font font2 = new Font("impact", 1, 20);
 
 			g.setFont(font);
-			g.setColor(Color.yellow);
+			g.setColor(Color.WHITE);
 			g.drawString("Credits", 575, 46);
 
 			g.drawString("Team A1 - Can be found spending their $50 Amazon giftcards online.", 150, 100);
