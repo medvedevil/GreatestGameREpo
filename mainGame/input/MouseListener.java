@@ -98,60 +98,48 @@ public class MouseListener extends MouseAdapter {
 
 			else if (game.gameState == STATE.Menu) {
 				// Waves Button
-				if (mouseOver(mx, my, 30, 90, 1220, 120)) {
+				if (mouseOver(mx, my, 50, 150, 350, 100)) {
 					handler.object.clear();
 					game.gameState = STATE.Wave;
 					handler.addObject(player);
-					// handler.addPickup(new PickupHealth(100, 100, ID.PickupHealth,
-					// "images/PickupHealth.png", handler));
 				}
-
-				//Multiplayer Join Button
-				else if (mouseOver(mx, my, 30, 240, 600, 120)) {
-					game.gameState = STATE.Join;
-				}
-				//Multiplayer Host Button
-				else if (mouseOver(mx, my, 640, 240, 610, 120)) {
-					game.gameState = STATE.Host;
-				}
-
-				// Help Button
-				else if (mouseOver(mx, my, 440, 600, 380, 90)) {
-					game.gameState = STATE.Help;
-				}
-
-
-				// Credits Button
-				else if (mouseOver(mx, my, 40, 600, 380, 90)) {
-					game.gameState = STATE.Credits;
-				} 
-				// Quit Button
-				else if (mouseOver(mx, my, 840, 600, 390, 90)) {
-					System.exit(1);
-				}
-
-				// Color Picker Mode
-				else if (mouseOver(mx, my, 555, 395, 175, 175)) {
+				// Bosses Mode
+				else if (mouseOver(mx, my, 50, 300, 350, 100)) {
 					handler.object.clear();
-					game.gameState = STATE.Color;
+					game.gameState = STATE.Bosses;
 					handler.addObject(player);
-					//game.gameState = STATE.Connect;
-					// switch to the multiplayer connection screen, see Game::tick()
-					// the player gets added inside of SpawnMultiplayer at the same time as the opponent
 				}
-
 				// Survival Mode
-				else if (mouseOver(mx, my, 760, 390, 450, 180)) {
+				else if (mouseOver(mx, my, 50, 450, 350, 100)) {
 					hud.setScore(0);
 					handler.object.clear();
 					game.gameState = STATE.Survival;
 					handler.addObject(player);
 				}
-
-				// Bosses Mode
-				else if (mouseOver(mx, my, 70, 390, 450, 180)) {
+				// Credits Button
+				else if (mouseOver(mx, my, 450, 150, 350, 100)) {
+					game.gameState = STATE.Credits;
+				} 
+				// Help Button
+				else if (mouseOver(mx, my, 450, 300, 350, 100)) {
+					game.gameState = STATE.Help;
+				}
+				// Quit Button
+				else if (mouseOver(mx, my, 450, 450, 350, 100)) {
+					System.exit(1);
+				}
+				//Multiplayer Host Button
+				else if (mouseOver(mx, my, 850, 150, 350, 100)) {
+					game.gameState = STATE.Host;
+				}
+				//Multiplayer Join Button
+				else if (mouseOver(mx, my, 850, 300, 350, 100)) {
+					game.gameState = STATE.Join;
+				}
+				// Color Picker Mode
+				else if (mouseOver(mx, my, 850, 450, 100, 100)) {
 					handler.object.clear();
-					game.gameState = STATE.Bosses;
+					game.gameState = STATE.Color;
 					handler.addObject(player);
 				}
 			}
