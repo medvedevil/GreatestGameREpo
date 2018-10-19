@@ -48,7 +48,6 @@ public class Menu {
 		this.spawner = spawner;
 		timer = 10;
 		r = new Random();
-		addColors();
 		img = null;
 		img2 = null;
 
@@ -64,27 +63,12 @@ public class Menu {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		handler.addObject(new MenuFireworks((r.nextInt(Game.WIDTH) - 25), 500, 50, 50, 0, -2,
-				colorPick.get(r.nextInt(6)), ID.Firework, this.handler));
 	}
-
-	public void addColors() {
-		colorPick.add(Color.WHITE);
-		colorPick.add(Color.WHITE);
-		colorPick.add(Color.RED);
-		colorPick.add(Color.RED);
-		colorPick.add(Color.BLUE);
-		colorPick.add(Color.BLUE);
-	}
-
 	public void tick() {
 		timer--;
 		if (timer <= 0) {
 			handler.object.clear();
 			colorIndex = r.nextInt(6);
-			handler.addObject(new MenuFireworks((r.nextInt(Game.WIDTH) - 25), 720, 100, 100, 0, -4,
-					colorPick.get(colorIndex), ID.Firework, this.handler));
 			timer = 300;
 		}
 		handler.tick();
@@ -93,74 +77,41 @@ public class Menu {
 	public void render(Graphics g) {
 		if (game.gameState == STATE.Menu) {
 			g.drawImage(img, 0, 0, Game.WIDTH, Game.HEIGHT, null);
-			g.drawImage(img2, 555, 395, 175, 175, null);
+			g.drawImage(img2, 850, 450, 100, 100, null);
 			handler.render(g);
-
-			Font font = new Font("Amoebic", 1, 100);
-			Font font2 = new Font("Amoebic", 1, 70);
-			Font font3 = new Font("Amoebic", 1, 50);
-			Font font4 = new Font("Amoebic", 1, 80);
-			Font font5 = new Font("Amoebic", 1, 60);
-
-			g.setFont(font4);
-			g.setColor(Color.WHITE);
-			g.drawString("PlayerKnown's BattleLands", 130, 70);
-
-			g.setColor(Color.WHITE);
-			g.drawRect(30, 90, 1220, 120);
+			
+			Button b1 = new Button(50, 150, 350, 100);
+			b1.setText("Waves");
+			Button b2 = new Button(50, 300, 350, 100);
+			b2.setText("Bosses");
+			Button b3 = new Button(50, 450, 350, 100);
+			b3.setText("Survival");
+			Button b4 = new Button(450, 150, 350, 100);
+			b4.setText("Credits");
+			Button b5 = new Button(450, 300, 350, 100);
+			b5.setText("Help");
+			Button b6 = new Button(450, 450, 350, 100);
+			b6.setText("Quit");
+			Button b7 = new Button(850, 150, 350, 100);
+			b7.setText("Host");
+			Button b8 = new Button(850, 300, 350, 100);
+			b8.setText("Join");
+			
+			Font font = new Font("Amoebic", 1, 80);
 			g.setFont(font);
 			g.setColor(Color.WHITE);
-			g.drawString("Waves", 475, 185);
-
-			g.setColor(Color.WHITE);
-			g.drawRect(30, 240, 600, 120);
-			g.setFont(font3);
-			g.setColor(Color.WHITE);
-			g.drawString("Join", 275, 350);
-			g.setFont(font5);
-			g.drawString("Multiplayer:", 170, 290);
-			g.drawString("Multiplayer:", 790, 290);
+			g.drawString("Unknown Battleland", 200, 100);
 			
-			
-			g.setColor(Color.WHITE);
-			g.drawRect(640, 240, 610, 120);
-			g.setFont(font3);
-			g.setColor(Color.WHITE);
-			g.drawString("Host", 900, 350);
-
-			g.setColor(Color.WHITE);
-			g.drawRect(70, 390, 450, 180);
-			g.setFont(font2);
-			g.setColor(Color.WHITE);
-			g.drawString("Bosses", 180, 500);
-
-			g.setColor(Color.WHITE);
-			g.drawRect(760, 390, 450, 180);
-			g.setFont(font2);
-			g.setColor(Color.WHITE);
-			g.drawString("Survival", 860, 500);
-
-			g.setColor(Color.WHITE);
-			g.drawRect(40, 600, 380, 90);
-			g.setFont(font3);
-			g.setColor(Color.WHITE);
-			g.drawString("Credits", 145, 660);
-
-			g.setColor(Color.WHITE);
-			g.drawRect(440, 600, 380, 90);
-			g.setFont(font3);
-			g.setColor(Color.WHITE);
-			g.drawString("Help", 580, 660);
-
-			g.setColor(Color.WHITE);
-			g.drawRect(840, 600, 390, 90);
-			g.setFont(font3);
-			g.setColor(Color.WHITE);
-			g.drawString("Quit", 985, 660);
-
+			b1.render(g);
+			b2.render(g);
+			b3.render(g);
+			b4.render(g);
+			b5.render(g);
+			b6.render(g);
+			b7.render(g);
+			b8.render(g);
 		} else if (game.gameState == STATE.Help) {// if the user clicks on
 			// "help"
-
 			g.drawImage(img, 0, 0, Game.WIDTH, Game.HEIGHT, null);
 			handler.render(g);
 
