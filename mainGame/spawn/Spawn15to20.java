@@ -375,13 +375,10 @@ public class Spawn15to20 {
 					GameObject tempObject = handler.object.get(i);
 					if (tempObject.getId() == ID.SeparateBoss) {
 						if (tempObject.getHealth() == 1000) {
-							double x = tempObject.getX();
-							double y = tempObject.getY();
+							double x = r.nextInt(Game.WIDTH) - 35;
+							double y = r.nextInt(Game.HEIGHT) - 75;
 							handler.removeObject(tempObject);
-							handler.addObject(new BossSeparates(x, y, ID.SeparateBoss2, handler, player, 200, 1000, -3, -5));
-							handler.addObject(new BossSeparates(x, y+200, ID.SeparateBoss2, handler, player, 200, 1000, -4, 3));
-							handler.addObject(new BossSeparates(x+200, y+200, ID.SeparateBoss2, handler, player, 200, 1000, 3, 4));
-							handler.addObject(new BossSeparates(x+200, y, ID.SeparateBoss2, handler, player, 200, 1000, 3, -3));
+							handler.addObject(new BossSeparates(x, y, ID.SeparateBoss2, handler, player, 75, 1000, -3, -5));
 							tempCounter++;
 						} 
 					}
@@ -395,9 +392,9 @@ public class Spawn15to20 {
 							double y = tempObject.getY();
 							handler.removeObject(tempObject);
 							handler.addObject(new BossSeparates(x, y, ID.SeparateBoss3, handler, player, 100, 500, -3, -5));
-							handler.addObject(new BossSeparates(x, y+100, ID.SeparateBoss3, handler, player, 100, 500, -4, 3));
-							handler.addObject(new BossSeparates(x+100, y+100, ID.SeparateBoss3, handler, player, 100, 500, 3, 4));
-							handler.addObject(new BossSeparates(x+100, y, ID.SeparateBoss3, handler, player, 100, 500, 3, -3));
+			//				handler.addObject(new BossSeparates(x, y+100, ID.SeparateBoss3, handler, player, 100, 500, -4, 3));
+			//				handler.addObject(new BossSeparates(x+100, y+100, ID.SeparateBoss3, handler, player, 100, 500, 3, 4));
+			//				handler.addObject(new BossSeparates(x+100, y, ID.SeparateBoss3, handler, player, 100, 500, 3, -3));
 							tempCounter++;
 							break;
 						} 

@@ -24,7 +24,7 @@ public class BossSeparates extends GameObject {
 		super(x, y, id);
 		this.velX = velX;
 		this.velY = velY;
-		img = getImage("images/jelloboss.png");
+		img = getImage("images/finalBossGIF.gif");
 		this.health = health;
 		this.size = size;
 	}
@@ -67,9 +67,6 @@ public class BossSeparates extends GameObject {
 
 	public void attackPlayer() {
 		this.x += velX;
-		this.y += velY;
-		if (this.y <= 0 || this.y >= Game.HEIGHT - this.size)
-			velY *= -1;
 		if (this.x <= 0 || this.x >= Game.WIDTH - this.size)
 			velX *= -1;
 	}
