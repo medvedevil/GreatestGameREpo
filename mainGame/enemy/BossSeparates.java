@@ -24,7 +24,7 @@ public class BossSeparates extends GameObject {
 		super(x, y, id);
 		this.velX = velX;
 		this.velY = velY;
-		img = getImage("images/finalBossGIF.gif");
+		img = getImage("images/finalBossGIF.gif"); //test comment
 		this.health = health;
 		this.size = size;
 	}
