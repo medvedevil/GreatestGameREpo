@@ -39,7 +39,7 @@ public class BossSeparates extends GameObject {
 
 	@Override
 	public void tick() {
-		this.health -= 10;
+		this.health -= 1;
 		attackPlayer();
 	}
 	public boolean isDead() {
