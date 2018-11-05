@@ -38,7 +38,23 @@ public class Player extends GameObject {
 	/**
 	 * Use the other constructor unless this is an opponent in multiplayer.
 	 */
+	//
 	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game, Image a, Color c, boolean isOpponent) {
+		super(x, y, id);
+		this.handler = handler;
+		this.hud = hud;
+		this.game = game;
+		this.damage = 2;
+		this.color = c;
+		this.tailcolor = c;
+		this.isOpponent = isOpponent;
+		playerWidth = 21;
+		playerHeight = 21;
+		count = 0;
+		
+	}
+	//For player with original square sprite for multiplayer, takes a color
+	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game, Color c, boolean isOpponent) {
 		super(x, y, id);
 		this.handler = handler;
 		this.hud = hud;
@@ -241,7 +257,7 @@ public class Player extends GameObject {
 	public void updateColors(Image head, Color tail) {
 		if (!isOpponent) {
 			if (head != null)
-				this.img = head;
+				Player.img = head;
 			if (tail != null)
 				this.tailcolor = tail;
 		}
