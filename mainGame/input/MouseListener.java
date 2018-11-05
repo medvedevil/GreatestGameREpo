@@ -1,6 +1,7 @@
 package mainGame.input;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import mainGame.Game.STATE;
@@ -169,10 +170,10 @@ public class MouseListener extends MouseAdapter {
 				int x = 0;
 				int y = 0;
 				if(mouseOver(mx, my,x+70, y+75, 125, 125)) {
-					player.updateColors(Color.white, null);
+					player.updateColors(Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/test_pixelart.png")), null);
 				} else if(mouseOver(mx, my, x+320, y+75, 125, 125)) {
-					player.updateColors(Color.blue, null);
-				} else if(mouseOver(mx, my, x+570, y+75, 125, 125)) {
+					player.updateColors(Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/mario.gif")), null);
+				}/* else if(mouseOver(mx, my, x+570, y+75, 125, 125)) {
 					player.updateColors(Color.yellow, null);
 				} else if(mouseOver(mx, my,x+820, y+75, 125, 125)) {
 					player.updateColors(Color.cyan, null);
@@ -208,7 +209,7 @@ public class MouseListener extends MouseAdapter {
 					player.updateColors(null, Color.pink);
 				} else if(mouseOver(mx, my,x+1070, y+585, 125, 125)) {
 					player.updateColors(null, Color.red);
-				} else if (mouseOver(mx, my,1000, 10, 250, 60)) {
+				} */else if (mouseOver(mx, my,1000, 10, 250, 60)) {
 					game.gameState = STATE.Menu;
 					handler.clearPlayer();
 				}

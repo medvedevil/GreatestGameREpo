@@ -22,7 +22,8 @@ public class ColorPickerScreen {
 	private Game game;
 	private int x,y;
 	private Image img;
-	
+	private Image a1 = Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/test_pixelart.png"));
+	private Image a2 = Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/mario.gif"));
 	public ColorPickerScreen(Player player, Game game) {
 		this.player = player;
 		this.game = game;
@@ -48,35 +49,35 @@ public class ColorPickerScreen {
 			g.drawString("Tail Color", 450, 425);
 			
 			g.setColor(Color.white);
-			g.drawOval(x+70, y+75, 125, 125);
-			g.fillOval(x+70, y+75, 125, 125);
+			g.drawImage(a1, x+70, y+75, 125, 125, null);
+			//g.fillOval(x+70, y+75, 125, 125);
 			g.setColor(Color.blue);
-			g.drawOval(x+320, y+75, 125, 125);
-			g.fillOval(x+320, y+75, 125, 125);
+			g.drawImage(a2, x+320, y+75, 125, 125, null);
+			//g.fillOval(x+320, y+75, 125, 125);
 			g.setColor(Color.yellow);
 			g.drawOval(x+570, y+75, 125, 125);
-			g.fillOval(x+570, y+75, 125, 125);
+			//g.fillOval(x+570, y+75, 125, 125);
 			g.setColor(Color.cyan);
 			g.drawOval(x+820, y+75, 125, 125);
-			g.fillOval(x+820, y+75, 125, 125);
+			//g.fillOval(x+820, y+75, 125, 125);
 			g.setColor(Color.gray);
 			g.drawOval(x+1070, y+75, 125, 125);
-			g.fillOval(x+1070, y+75, 125, 125);
+			//g.fillOval(x+1070, y+75, 125, 125);
 			g.setColor(Color.green);
 			g.drawOval(x+70, y+215, 125, 125);
-			g.fillOval(x+70, y+215, 125, 125);
+			//g.fillOval(x+70, y+215, 125, 125);
 			g.setColor(Color.magenta);
 			g.drawOval(x+320, y+215, 125, 125);
-			g.fillOval(x+320, y+215, 125, 125);
+			//g.fillOval(x+320, y+215, 125, 125);
 			g.setColor(Color.orange);
 			g.drawOval(x+570, y+215, 125, 125);
-			g.fillOval(x+570, y+215, 125, 125);
+			//g.fillOval(x+570, y+215, 125, 125);
 			g.setColor(Color.pink);
 			g.drawOval(x+820, y+215, 125, 125);
-			g.fillOval(x+820, y+215, 125, 125);
+			//g.fillOval(x+820, y+215, 125, 125);
 			g.setColor(Color.red);
 			g.drawOval(x+1070, y+215, 125, 125);
-			g.fillOval(x+1070, y+215, 125, 125);
+			//g.fillOval(x+1070, y+215, 125, 125);
 			
 			g.setColor(Color.white);
 			g.drawOval(x+70, y+440, 125, 125);

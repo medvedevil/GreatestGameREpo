@@ -2,7 +2,10 @@ package mainGame;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
+import java.net.URL;
 import java.util.Random;
 
 import mainGame.Game.STATE;
@@ -30,11 +33,12 @@ public class Player extends GameObject {
 	private Color tailcolor;
 	private boolean isOpponent;
 	int count;
+	private static Image img = Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/test_pixelart.png"));
 
 	/**
 	 * Use the other constructor unless this is an opponent in multiplayer.
 	 */
-	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game, Color c, boolean isOpponent) {
+	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game, Image a, Color c, boolean isOpponent) {
 		super(x, y, id);
 		this.handler = handler;
 		this.hud = hud;
@@ -46,13 +50,14 @@ public class Player extends GameObject {
 		playerWidth = 21;
 		playerHeight = 21;
 		count = 0;
+		
 	}
 
 	/**
 	 * Old constructor doesn't take a color.
 	 */
 	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game) {
-		this(x, y, id, handler, hud, game, Color.white, false);
+		this(x, y, id, handler, hud, game, img, Color.WHITE, false);
 	}
 
 	@Override
@@ -186,7 +191,7 @@ public class Player extends GameObject {
 	public void render(Graphics g) {
 
 		g.setColor(this.color);
-		g.fillRect((int) x, (int) y, playerWidth, playerHeight);
+		g.drawImage(img, (int) x, (int) y, playerWidth, playerHeight, null);
 
 	}
 
@@ -233,10 +238,10 @@ public class Player extends GameObject {
 		y = Game.HEIGHT / 2 - 21;
 	}
 
-	public void updateColors(Color head, Color tail) {
+	public void updateColors(Image head, Color tail) {
 		if (!isOpponent) {
 			if (head != null)
-				this.color = head;
+				this.img = head;
 			if (tail != null)
 				this.tailcolor = tail;
 		}
