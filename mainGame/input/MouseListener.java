@@ -190,25 +190,25 @@ public class MouseListener extends MouseAdapter {
 				} else if(mouseOver(mx, my,x+1070, y+215, 125, 125)) {
 					player.updateColors(Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/cat.png")), null);
 				} else if(mouseOver(mx, my,x+70, y+440, 125, 125)) {
-					player.updateColors(null, new Color(255,255,255,80));
+					player.updateColors(null, new Color(255,255,255,90));
 				} else if(mouseOver(mx, my, x+320, y+440, 125, 125)) {
-					player.updateColors(null, Color.blue);
+					player.updateColors(null, new Color(0, 0, 255, 90));
 				} else if(mouseOver(mx, my, x+570, y+440, 125, 125)) {
-					player.updateColors(null, Color.yellow);
+					player.updateColors(null, new Color(255, 255, 0, 90));
 				} else if(mouseOver(mx, my,x+820, y+440, 125, 125)) {
-					player.updateColors(null, Color.cyan);
+					player.updateColors(null, new Color(0, 255, 255, 90));
 				} else if(mouseOver(mx, my,x+1070, y+440, 125, 125)) {
-					player.updateColors(null, Color.gray);
+					player.updateColors(null, new Color(120, 120, 120, 90));
 				} else if(mouseOver(mx, my,x+70, y+585, 125, 125)) {
-					player.updateColors(null, Color.green);
+					player.updateColors(null, new Color(0, 255, 0, 90));
 				} else if(mouseOver(mx, my,x+320, y+585, 125, 125)) {
-					player.updateColors(null, Color.magenta);
+					player.updateColors(null, new Color(255, 0, 255, 90));
 				} else if(mouseOver(mx, my,x+570, y+585, 125, 125)) {
-					player.updateColors(null, Color.orange);
+					player.updateColors(null, new Color(255, 128, 0, 90));
 				} else if(mouseOver(mx, my,x+820, y+585, 125, 125)) {
-					player.updateColors(null, Color.pink);
+					player.updateColors(null, new Color(255, 0, 127, 90));
 				} else if(mouseOver(mx, my,x+1070, y+585, 125, 125)) {
-					player.updateColors(null, Color.red);
+					player.updateColors(null, new Color(255, 0, 0, 90));
 				} else if (mouseOver(mx, my,1000, 10, 250, 60)) {
 					game.gameState = STATE.Menu;
 					handler.clearPlayer();

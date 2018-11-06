@@ -56,38 +56,20 @@ public class ColorPickerScreen {
 			g.drawString("Head Color", 425, 65);
 			g.drawString("Tail Color", 450, 425);
 			
-			g.setColor(Color.white);
-			g.drawImage(ship, x+70, y+75, 125, 125, null);
-			//g.fillOval(x+70, y+75, 125, 125);
-			g.setColor(Color.blue);
-			g.drawImage(mario, x+320, y+75, 125, 125, null);
-			//g.fillOval(x+320, y+75, 125, 125);
-			g.setColor(Color.yellow);
-			g.drawImage(saitama, x+570, y+75, 125, 125, null);
-			//g.fillOval(x+570, y+75, 125, 125);
-			g.setColor(Color.cyan);
-			g.drawImage(pikachu, x+820, y+75, 125, 125, null);
-			//g.fillOval(x+820, y+75, 125, 125);
-			g.setColor(Color.gray);
-			g.drawImage(octocat, x+1070, y+75, 125, 125, null);
-			//g.fillOval(x+1070, y+75, 125, 125);
-			g.setColor(Color.green);
-			g.drawImage(redit, x+70, y+215, 125, 125, null);
-			//g.fillOval(x+70, y+215, 125, 125);
-			g.setColor(Color.magenta);
-			g.drawImage(abra, x+320, y+215, 125, 125, null);
-			//g.fillOval(x+320, y+215, 125, 125);
-			g.setColor(Color.orange);
+			//Prints the images for the character in the character/color picker menu
+			g.drawImage(ship, x+70, y+75, 125, 125, null);			
+			g.drawImage(mario, x+320, y+75, 125, 125, null);					
+			g.drawImage(saitama, x+570, y+75, 125, 125, null);			
+			g.drawImage(pikachu, x+820, y+75, 125, 125, null);			
+			g.drawImage(octocat, x+1070, y+75, 125, 125, null);			
+			g.drawImage(redit, x+70, y+215, 125, 125, null);			
+			g.drawImage(abra, x+320, y+215, 125, 125, null);			
 			g.drawImage(giphy, x+570, y+215, 125, 125, null);
-			//g.fillOval(x+570, y+215, 125, 125);
-			g.setColor(Color.pink);
 			g.drawImage(kingdom, x+820, y+215, 125, 125, null);
-			//g.fillOval(x+820, y+215, 125, 125);
-			g.setColor(Color.red);
 			g.drawImage(cat, x+1070, y+215, 125, 125, null);
-			//g.fillOval(x+1070, y+215, 125, 125);
 			
-			g.setColor(new Color(255,255,255));
+			//Prints the ovals and for the tail color picker in the character/color picker menu
+			g.setColor(Color.white);
 			g.drawOval(x+70, y+440, 125, 125);
 			g.fillOval(x+70, y+440, 125, 125);
 			g.setColor(Color.blue);

@@ -48,8 +48,8 @@ public class Player extends GameObject {
 		this.color = c;
 		this.tailcolor = c;
 		this.isOpponent = isOpponent;
-		playerWidth = 21;
-		playerHeight = 21;
+		playerWidth = 31;
+		playerHeight = 31;
 		count = 0;
 		
 	}
@@ -63,8 +63,8 @@ public class Player extends GameObject {
 		this.color = c;
 		this.tailcolor = c;
 		this.isOpponent = isOpponent;
-		playerWidth = 21;
-		playerHeight = 21;
+		playerWidth = 31;
+		playerHeight = 31;
 		count = 0;
 		
 	}
@@ -73,7 +73,7 @@ public class Player extends GameObject {
 	 * Old constructor doesn't take a color.
 	 */
 	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game) {
-		this(x, y, id, handler, hud, game, img, Color.WHITE, false);
+		this(x, y, id, handler, hud, game, img,new Color(255,255,255, 90), false);
 	}
 
 	@Override
@@ -250,8 +250,8 @@ public class Player extends GameObject {
 	}
 
 	public void resetLoc() {
-		x = Game.WIDTH / 2 - 21;
-		y = Game.HEIGHT / 2 - 21;
+		x = Game.WIDTH / 2 - 31;
+		y = Game.HEIGHT / 2 - 31;
 	}
 
 	public void updateColors(Image head, Color tail) {
