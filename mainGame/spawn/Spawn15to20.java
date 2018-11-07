@@ -365,20 +365,42 @@ public class Spawn15to20 {
 			}
 		}
 		else if (levelNumber == 101) {// arbitrary number for the boss
-			if (tempCounter == 0) {
+			
+			if (tempCounter < 1) {
+				hud.setLevel(101);
+				handler.addObject(new BossSeparates(ID.SeparateBoss, handler));
+				tempCounter++;
+			} else if (tempCounter >= 1) {
+				for (int i = 0; i < handler.object.size(); i++) {
+					GameObject tempObject = handler.object.get(i);
+					if (tempObject.getId() == ID.SeparateBoss) {
+						if (tempObject.getHealth() <= 0) {
+							this.hud.setLevel(21);
+							handler.removeObject(tempObject);
+							//player.resetCount();
+							Spawn1to5.LEVEL_SET++;
+							//game.gameState = STATE.Upgrade;
+						}
+					}
+				}
+			}
+			
+			/*if (tempCounter == 0) {
 				player.resetCount();
 				this.hud.setLevel(101);
-				handler.addObject(new BossSeparates(r.nextInt(Game.WIDTH-400), r.nextInt(Game.HEIGHT-400), ID.SeparateBoss, handler, player, 400, 2000, -4, -4));
+				handler.addObject(new BossSeparates(ID.SeparateBoss, handler));
+				//Old Parameters: r.nextInt(Game.WIDTH-400), r.nextInt(Game.HEIGHT-400), ID.SeparateBoss, handler, player, 400, 2000, -4, -4
 				tempCounter++;
 			} else if (tempCounter == 1) {
 				for (int i = 0; i < handler.object.size(); i++) {
 					GameObject tempObject = handler.object.get(i);
 					if (tempObject.getId() == ID.SeparateBoss) {
-						if (tempObject.getHealth() == 1000) {
+						if (tempObject.getHealth() == 1500) {
 							double x = r.nextInt(Game.WIDTH) - 35;
 							double y = r.nextInt(Game.HEIGHT) - 75;
 							handler.removeObject(tempObject);
-							handler.addObject(new BossSeparates(x, y, ID.SeparateBoss2, handler, player, 75, 1000, -3, -5));
+							handler.addObject(new BossSeparates(ID.SeparateBoss2, handler));
+							//Old Parameters: x, y, ID.SeparateBoss2, handler, player, 75, 1500, -3, -5
 							tempCounter++;
 						} 
 					}
@@ -391,7 +413,8 @@ public class Spawn15to20 {
 							double x = tempObject.getX();
 							double y = tempObject.getY();
 							handler.removeObject(tempObject);
-							handler.addObject(new BossSeparates(x, y, ID.SeparateBoss3, handler, player, 100, 500, -3, -5));
+							handler.addObject(new BossSeparates(ID.SeparateBoss3, handler));
+							//Old Parameters: x, y, ID.SeparateBoss3, handler, player, 100, 500, -3, -5
 			//				handler.addObject(new BossSeparates(x, y+100, ID.SeparateBoss3, handler, player, 100, 500, -4, 3));
 			//				handler.addObject(new BossSeparates(x+100, y+100, ID.SeparateBoss3, handler, player, 100, 500, 3, 4));
 			//				handler.addObject(new BossSeparates(x+100, y, ID.SeparateBoss3, handler, player, 100, 500, 3, -3));
@@ -403,7 +426,7 @@ public class Spawn15to20 {
 			} else if (tempCounter >= 6) {
 				for (int i = 0; i < handler.object.size(); i++) {
 					GameObject tempObject = handler.object.get(i);
-					if (tempObject.getId() == ID.EnemyBoss) {
+					if (tempObject.getId() == ID.SeparateBoss3) {
 						if (tempObject.getHealth() <= 0) {
 							this.hud.setLevel(21);
 							handler.removeObject(tempObject);
@@ -412,7 +435,7 @@ public class Spawn15to20 {
 						}
 					}
 				}
-			}
+			}*/
 		}
 	}
 

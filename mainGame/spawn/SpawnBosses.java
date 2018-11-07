@@ -120,7 +120,8 @@ public class SpawnBosses {
 		}
 		else if (levelNumber == 3) {
 			if(tempCounter == 0) {
-				handler.addObject(new BossSeparates(r.nextInt(Game.WIDTH-400), r.nextInt(Game.HEIGHT-400), ID.SeparateBoss, handler, player, 400, 2000, -4, -4));
+				handler.addObject(new BossSeparates(ID.SeparateBoss, handler));
+				//Old Parameters: r.nextInt(Game.WIDTH-400), r.nextInt(Game.HEIGHT-400), ID.SeparateBoss, handler, player, 400, 2000, -4, -4
 				tempCounter++;
 			} else if (tempCounter == 1) {
 				for (int i = 0; i < handler.object.size(); i++) {
@@ -130,10 +131,11 @@ public class SpawnBosses {
 							double x = tempObject.getX();
 							double y = tempObject.getY();
 							handler.removeObject(tempObject);
-							handler.addObject(new BossSeparates(x, y, ID.SeparateBoss2, handler, player, 200, 1000, -3, -5));
-							handler.addObject(new BossSeparates(x, y+200, ID.SeparateBoss2, handler, player, 200, 1000, -4, 3));
-							handler.addObject(new BossSeparates(x+200, y+200, ID.SeparateBoss2, handler, player, 200, 1000, 3, 4));
-							handler.addObject(new BossSeparates(x+200, y, ID.SeparateBoss2, handler, player, 200, 1000, 3, -3));
+							handler.addObject(new BossSeparates(ID.SeparateBoss2, handler));
+							//Old Parameters: x, y, ID.SeparateBoss2, handler, player, 200, 1000, -3, -5
+							//handler.addObject(new BossSeparates(x, y+200, ID.SeparateBoss2, handler, player, 200, 1000, -4, 3));
+							//handler.addObject(new BossSeparates(x+200, y+200, ID.SeparateBoss2, handler, player, 200, 1000, 3, 4));
+							//handler.addObject(new BossSeparates(x+200, y, ID.SeparateBoss2, handler, player, 200, 1000, 3, -3));
 							tempCounter++;
 						} 
 					}
@@ -146,10 +148,11 @@ public class SpawnBosses {
 							double x = tempObject.getX();
 							double y = tempObject.getY();
 							handler.removeObject(tempObject);
-							handler.addObject(new BossSeparates(x, y, ID.SeparateBoss3, handler, player, 100, 500, -3, -5));
-							handler.addObject(new BossSeparates(x, y+100, ID.SeparateBoss3, handler, player, 100, 500, -4, 3));
-							handler.addObject(new BossSeparates(x+100, y+100, ID.SeparateBoss3, handler, player, 100, 500, 3, 4));
-							handler.addObject(new BossSeparates(x+100, y, ID.SeparateBoss3, handler, player, 100, 500, 3, -3));
+							handler.addObject(new BossSeparates(ID.SeparateBoss3, handler));
+							//Old Parameters: x, y, ID.SeparateBoss3, handler, player, 100, 500, -3, -5
+							//handler.addObject(new BossSeparates(x, y+100, ID.SeparateBoss3, handler, player, 100, 500, -4, 3));
+							//handler.addObject(new BossSeparates(x+100, y+100, ID.SeparateBoss3, handler, player, 100, 500, 3, 4));
+							//handler.addObject(new BossSeparates(x+100, y, ID.SeparateBoss3, handler, player, 100, 500, 3, -3));
 							tempCounter++;
 							break;
 						} 
