@@ -20,7 +20,6 @@ import javax.swing.JOptionPane;
  * 
  * @author Brandon Loehle 5/30/16
  */
-//Commit
 public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
@@ -42,6 +41,7 @@ public class Game extends Canvas implements Runnable {
 	private MouseListener mouseListener;
 	private Upgrades upgrades;
 	private Player player;
+	private WonWaves wonWaves;
 	public STATE gameState = STATE.Menu;
 	private PauseMenu pauseMenu;
 	public static int TEMP_COUNTER;
@@ -72,7 +72,7 @@ public class Game extends Canvas implements Runnable {
 	 */
 	public enum STATE {
 		Menu, Help, Join, Host, Wave, GameOver, Upgrade, Bosses, Survival, Multiplayer, 
-		Leaderboard, Color, LeaderboardDisplay, Credits
+		Leaderboard, Color, LeaderboardDisplay, Credits, WonWaves
 	};
 
 	/**
@@ -98,6 +98,7 @@ public class Game extends Canvas implements Runnable {
 		upgradeScreen = new UpgradeScreen(this, this.handler, this.hud);
 		upgrades = new Upgrades(this, this.handler, this.hud, this.upgradeScreen, this.player, this.spawner, this.spawner2, this.spawner3, this.spawner4);
 		gameOver = new GameOver(this, this.handler, this.hud, player);
+		wonWaves = new WonWaves(this.handler, this.hud);
 		pauseMenu = new PauseMenu();
 		leaderboardList = new String[6][2];
 		leaderboard = new Leaderboard(this, hud, leaderboardList);
@@ -328,6 +329,8 @@ public class Game extends Canvas implements Runnable {
 					colorScreen.render(g);
 				} else if (gameState == STATE.LeaderboardDisplay) {
 					leaderboardDisplay.paint(g);
+				} else if(gameState == STATE.WonWaves) {
+					wonWaves.render(g);
 				}
 			} else {
 				pauseMenu.render(g);
