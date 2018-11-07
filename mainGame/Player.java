@@ -26,7 +26,7 @@ public class Player extends GameObject {
 	private HUD hud;
 	private Game game;
 	private int damage;
-	private int playerWidth, playerHeight;
+	private int playerWidth = 42, playerHeight = 42;
 	public static int playerSpeed = 10;
 	public String gameMode;
 	private Color color;
@@ -48,8 +48,8 @@ public class Player extends GameObject {
 		this.color = c;
 		this.tailcolor = c;
 		this.isOpponent = isOpponent;
-		playerWidth = 21;
-		playerHeight = 21;
+		playerWidth = 42;
+		playerHeight = 42;
 		count = 0;
 		
 	}
@@ -63,8 +63,8 @@ public class Player extends GameObject {
 		this.color = c;
 		this.tailcolor = c;
 		this.isOpponent = isOpponent;
-		playerWidth = 21;
-		playerHeight = 21;
+		playerWidth = 42;
+		playerHeight = 42;
 		count = 0;
 		
 	}
@@ -250,8 +250,8 @@ public class Player extends GameObject {
 	}
 
 	public void resetLoc() {
-		x = Game.WIDTH / 2 - 21;
-		y = Game.HEIGHT / 2 - 21;
+		x = Game.WIDTH / 2 - 42;
+		y = Game.HEIGHT / 2 - 42;
 	}
 
 	public void updateColors(Image head, Color tail) {
