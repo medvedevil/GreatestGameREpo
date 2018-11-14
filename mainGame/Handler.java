@@ -132,6 +132,11 @@ public class Handler {
 			}
 		}
 	}
+	
+	public void clear() {
+		object = new ArrayList<GameObject>();
+		pickups = new ArrayList<Pickup>();
+	}
 
 	public boolean isMulti() {
 		return isMP;
@@ -155,3 +160,4 @@ public class Handler {
 		Handler.timer = timer;
 	}
 }
+
