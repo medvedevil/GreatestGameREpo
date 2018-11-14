@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
  * 
  * @author Brandon Loehle 5/30/16
  */
+
 public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
@@ -41,7 +42,6 @@ public class Game extends Canvas implements Runnable {
 	private MouseListener mouseListener;
 	private Upgrades upgrades;
 	private Player player;
-	private WonWaves wonWaves;
 	public STATE gameState = STATE.Menu;
 	private PauseMenu pauseMenu;
 	public static int TEMP_COUNTER;
@@ -72,7 +72,7 @@ public class Game extends Canvas implements Runnable {
 	 */
 	public enum STATE {
 		Menu, Help, Join, Host, Wave, GameOver, Upgrade, Bosses, Survival, Multiplayer, 
-		Leaderboard, Color, LeaderboardDisplay, Credits, WonWaves
+		Leaderboard, Color, LeaderboardDisplay, Credits
 	};
 
 	/**
@@ -86,7 +86,7 @@ public class Game extends Canvas implements Runnable {
 	public Game(String op, String addr, int port, String room, String pass) {
 		handler = new Handler(this);
 		hud = new HUD(this, handler);
-		player = new Player(WIDTH / 2 - 21, HEIGHT / 2 - 21, ID.Player, handler, this.hud, this);
+		player = new Player(WIDTH / 2 - 42, HEIGHT / 2 - 42, ID.Player, handler, this.hud, this);
 		spawner = new Spawn1to5(this.handler, this.hud, this, player);
 		spawner2 = new Spawn5to10(this.handler, this.hud, this.spawner, this, player);
 		spawner3 = new Spawn10to15(this.handler, this.hud, this, player);
@@ -98,7 +98,6 @@ public class Game extends Canvas implements Runnable {
 		upgradeScreen = new UpgradeScreen(this, this.handler, this.hud);
 		upgrades = new Upgrades(this, this.handler, this.hud, this.upgradeScreen, this.player, this.spawner, this.spawner2, this.spawner3, this.spawner4);
 		gameOver = new GameOver(this, this.handler, this.hud, player);
-		wonWaves = new WonWaves(this.handler, this.hud);
 		pauseMenu = new PauseMenu();
 		leaderboardList = new String[6][2];
 		leaderboard = new Leaderboard(this, hud, leaderboardList);
@@ -329,13 +328,11 @@ public class Game extends Canvas implements Runnable {
 					colorScreen.render(g);
 				} else if (gameState == STATE.LeaderboardDisplay) {
 					leaderboardDisplay.paint(g);
-				} else if(gameState == STATE.WonWaves) {
-					wonWaves.render(g);
 				}
 			} else {
 				pauseMenu.render(g);
 			}
-			if(!isPaused()== true){
+			if(!isPaused()){
 				handler.render(g);} // ALWAYS RENDER HANDLER, NO MATTER IF MENU OR GAME
 			///////// Draw things above this//////////////
 			g.dispose();

@@ -2,7 +2,10 @@ package mainGame;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
+import java.net.URL;
 import java.util.Random;
 
 import mainGame.Game.STATE;
@@ -23,17 +26,34 @@ public class Player extends GameObject {
 	private HUD hud;
 	private Game game;
 	private int damage;
-	private int playerWidth, playerHeight;
+	private int playerWidth = 42, playerHeight = 42;
 	public static int playerSpeed = 10;
 	public String gameMode;
 	private Color color;
 	private Color tailcolor;
 	private boolean isOpponent;
 	int count;
+	private static Image img = Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/test_pixelart.png"));
 
 	/**
 	 * Use the other constructor unless this is an opponent in multiplayer.
 	 */
+	//
+	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game, Image a, Color c, boolean isOpponent) {
+		super(x, y, id);
+		this.handler = handler;
+		this.hud = hud;
+		this.game = game;
+		this.damage = 2;
+		this.color = c;
+		this.tailcolor = c;
+		this.isOpponent = isOpponent;
+		playerWidth = 31;
+		playerHeight = 31;
+		count = 0;
+		
+	}
+	//For player with original square sprite for multiplayer, takes a color
 	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game, Color c, boolean isOpponent) {
 		super(x, y, id);
 		this.handler = handler;
@@ -43,16 +63,17 @@ public class Player extends GameObject {
 		this.color = c;
 		this.tailcolor = c;
 		this.isOpponent = isOpponent;
-		playerWidth = 21;
-		playerHeight = 21;
+		playerWidth = 31;
+		playerHeight = 31;
 		count = 0;
+		
 	}
 
 	/**
 	 * Old constructor doesn't take a color.
 	 */
 	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game) {
-		this(x, y, id, handler, hud, game, Color.white, false);
+		this(x, y, id, handler, hud, game, img,new Color(255,255,255, 90), false);
 	}
 
 	@Override
@@ -186,7 +207,7 @@ public class Player extends GameObject {
 	public void render(Graphics g) {
 
 		g.setColor(this.color);
-		g.fillRect((int) x, (int) y, playerWidth, playerHeight);
+		g.drawImage(img, (int) x, (int) y, playerWidth, playerHeight, null);
 
 	}
 
@@ -229,14 +250,15 @@ public class Player extends GameObject {
 	}
 
 	public void resetLoc() {
-		x = Game.WIDTH / 2 - 21;
-		y = Game.HEIGHT / 2 - 21;
+		x = Game.WIDTH / 2 - 31;
+		y = Game.HEIGHT / 2 - 31;
+
 	}
 
-	public void updateColors(Color head, Color tail) {
+	public void updateColors(Image head, Color tail) {
 		if (!isOpponent) {
 			if (head != null)
-				this.color = head;
+				Player.img = head;
 			if (tail != null)
 				this.tailcolor = tail;
 		}
@@ -253,3 +275,4 @@ public class Player extends GameObject {
 	}
 
 }
+

@@ -1,3 +1,4 @@
+
 package mainGame.spawn;
 
 import java.awt.Color;
@@ -379,3 +380,4 @@ public class Spawn5to10 {
 	}
 
 }
+
