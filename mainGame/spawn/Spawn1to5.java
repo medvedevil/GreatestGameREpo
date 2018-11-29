@@ -376,6 +376,7 @@ public class Spawn1to5 {
 			this.hud.setLevel(6);
 			handler.clearEnemies();
 			player.resetCount();
+			player.health = 100;
 			LEVEL_SET++;
 			game.gameState = STATE.Upgrade;
 		} else if (levelsRemaining > 1) {
@@ -403,3 +404,4 @@ public class Spawn1to5 {
 	}
 
 }
+

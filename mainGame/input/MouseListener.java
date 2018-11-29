@@ -1,6 +1,7 @@
 package mainGame.input;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import mainGame.Game.STATE;
@@ -71,7 +72,16 @@ public class MouseListener extends MouseAdapter {
 					spawnMulti.reset();
 					game.gameState = STATE.Menu;
 				}
+			} else if (game.gameState == STATE.WonWaves) {
+				upgrades.resetUpgrades();
+				spawner.restart();
+				spawner.addLevels();
+				spawner2.restart();
+				spawner2.addLevels();
+				Spawn1to5.LEVEL_SET = 1;
+				game.gameState = STATE.Menu;
 			}
+
 			else if (game.gameState == STATE.Wave) {
 			}
 			else if (game.gameState == STATE.Multiplayer) {
@@ -168,45 +178,45 @@ public class MouseListener extends MouseAdapter {
 				int x = 0;
 				int y = 0;
 				if(mouseOver(mx, my,x+70, y+75, 125, 125)) {
-					player.updateColors(Color.white, null);
+					player.updateColors(Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/test_pixelart.png")), null);
 				} else if(mouseOver(mx, my, x+320, y+75, 125, 125)) {
-					player.updateColors(Color.blue, null);
-				} else if(mouseOver(mx, my, x+570, y+75, 125, 125)) {
-					player.updateColors(Color.yellow, null);
+					player.updateColors(Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/mario.gif")), null);
+				} else if(mouseOver(mx, my, x+570, y+75, 160, 160)) {
+					player.updateColors(Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/saitamaONE.png")), null);
 				} else if(mouseOver(mx, my,x+820, y+75, 125, 125)) {
-					player.updateColors(Color.cyan, null);
+					player.updateColors(Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/pikachu.png")), null);
 				} else if(mouseOver(mx, my,x+1070, y+75, 125, 125)) {
-					player.updateColors(Color.gray, null);
+					player.updateColors(Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/octocat.png")), null);
 				} else if(mouseOver(mx, my,x+70, y+215, 125, 125)) {
-					player.updateColors(Color.green, null);
+					player.updateColors(Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/redit.png")), null);
 				} else if(mouseOver(mx, my,x+320, y+215, 125, 125)) {
-					player.updateColors(Color.magenta, null);
+					player.updateColors(Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/abra.gif")), null);
 				} else if(mouseOver(mx, my,x+570, y+215, 125, 125)) {
-					player.updateColors(Color.orange, null);
+					player.updateColors(Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/giphy.gif")), null);
 				} else if(mouseOver(mx, my,x+820, y+215, 125, 125)) {
-					player.updateColors(Color.pink, null);
+					player.updateColors(Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/kingdom.png")), null);
 				} else if(mouseOver(mx, my,x+1070, y+215, 125, 125)) {
-					player.updateColors(Color.red, null);
+					player.updateColors(Toolkit.getDefaultToolkit().getImage(Game.class.getResource("images/cat.png")), null);
 				} else if(mouseOver(mx, my,x+70, y+440, 125, 125)) {
-					player.updateColors(null, Color.white);
+					player.updateColors(null, new Color(255,255,255,90));
 				} else if(mouseOver(mx, my, x+320, y+440, 125, 125)) {
-					player.updateColors(null, Color.blue);
+					player.updateColors(null, new Color(0, 0, 255, 90));
 				} else if(mouseOver(mx, my, x+570, y+440, 125, 125)) {
-					player.updateColors(null, Color.yellow);
+					player.updateColors(null, new Color(255, 255, 0, 90));
 				} else if(mouseOver(mx, my,x+820, y+440, 125, 125)) {
-					player.updateColors(null, Color.cyan);
+					player.updateColors(null, new Color(0, 255, 255, 90));
 				} else if(mouseOver(mx, my,x+1070, y+440, 125, 125)) {
-					player.updateColors(null, Color.gray);
+					player.updateColors(null, new Color(120, 120, 120, 90));
 				} else if(mouseOver(mx, my,x+70, y+585, 125, 125)) {
-					player.updateColors(null, Color.green);
+					player.updateColors(null, new Color(0, 255, 0, 90));
 				} else if(mouseOver(mx, my,x+320, y+585, 125, 125)) {
-					player.updateColors(null, Color.magenta);
+					player.updateColors(null, new Color(255, 0, 255, 90));
 				} else if(mouseOver(mx, my,x+570, y+585, 125, 125)) {
-					player.updateColors(null, Color.orange);
+					player.updateColors(null, new Color(255, 128, 0, 90));
 				} else if(mouseOver(mx, my,x+820, y+585, 125, 125)) {
-					player.updateColors(null, Color.pink);
+					player.updateColors(null, new Color(255, 0, 127, 90));
 				} else if(mouseOver(mx, my,x+1070, y+585, 125, 125)) {
-					player.updateColors(null, Color.red);
+					player.updateColors(null, new Color(255, 0, 0, 90));
 				} else if (mouseOver(mx, my,1000, 10, 250, 60)) {
 					game.gameState = STATE.Menu;
 					handler.clearPlayer();
@@ -216,14 +226,6 @@ public class MouseListener extends MouseAdapter {
 					leaderboard.reset();
 					game.gameState = STATE.Menu;
 				}
-			} else if(game.gameState == STATE.WonWaves) {
-				upgrades.resetUpgrades();
-				spawner.restart();
-				spawner.addLevels();
-				spawner2.restart();
-				spawner2.addLevels();
-				Spawn1to5.LEVEL_SET = 1;
-				game.gameState = STATE.Menu;
 			}
 		} else { // game is paused
 			// PauseMenu-> Resume
@@ -294,3 +296,4 @@ public class MouseListener extends MouseAdapter {
 			return false;
 	}
 }
+
