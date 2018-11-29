@@ -389,8 +389,11 @@ public class Spawn10to15 {
 
 	public void skipLevel() {
 		if (levelsRemaining == 1) {
-			tempCounter = 0;
-			levelNumber = 101;
+			this.hud.setLevel(16);
+			handler.clearEnemies();
+			player.resetCount();
+			Spawn1to5.LEVEL_SET++;
+			game.gameState = STATE.Upgrade;
 		} else if (levelsRemaining > 1) {
 			spawnTimer = 10;
 			levelsRemaining--;

@@ -36,7 +36,7 @@ public class Handler {
 			GameObject tempObject = object.get(i);
 			if (tempObject == null) return;
 			if (tempObject.getId() == ID.Player || tempObject.getId() == ID.Player2 || tempObject.getId() == ID.Trail
-					|| tempObject.getId() == ID.EnemyBurstWarning) {
+					|| tempObject.getId() == ID.EnemyBurstWarning || tempObject.getId() == ID.FireballAttack) {
 				// we don't want these to ever be frozen by the Screen Freeze ability
 
 				// Every GameObject has a tick method, so this effectively
@@ -131,6 +131,11 @@ public class Handler {
 				// skip a player (should there be more than one)
 			}
 		}
+	}
+	
+	public void clear() {
+		object = new ArrayList<GameObject>();
+		pickups = new ArrayList<Pickup>();
 	}
 
 	public boolean isMulti() {

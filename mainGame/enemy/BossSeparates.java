@@ -16,26 +16,48 @@ import mainGame.*;
 
 public class BossSeparates extends GameObject {
 
-	/*Random r = new Random();
+	private Handler handler;
+	Random r = new Random();
 	private Image img;
 	private int size;
+	private int fireTimer = 20;
+	private Player player;
 
+	private boolean onPath = false;
+	private int target_x = 0;
+	private int target_y = 0;
+	private double angle;
+	private double speed = 10;
+	
 	
 	public BossSeparates(double x, double y, ID id, Handler handler, Player player, int size, int health, int velX, int velY) {
 		super(x, y, id);
+		this.handler = handler;
 		this.velX = velX;
 		this.velY = velY;
-		img = getImage("images/finalBossGIF.gif"); //test comment
+		img = getImage("images/finalBossGIF.gif");
 		this.health = health;
 		this.size = size;
+		this.player = player;
 	}
 
+	
 	@Override
 	public void tick() {
 		this.health -= 1;
 		attackPlayer();
 	}
-
+	
+	
+	public boolean isDead() {
+		if(this.health < 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
 	public Image getImage(String path) {
 		Image image = null;
 		try {
@@ -44,13 +66,14 @@ public class BossSeparates extends GameObject {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-
+		
 		return image;
 	}
-
+	
+	
 	@Override
 	public void render(Graphics g) {
-			g.drawImage(img, (int) this.x, (int) this.y, size, size, null);
+		g.drawImage(img, (int) this.x, (int) this.y, size, size, null);
 		// HEALTH BAR
 		g.setColor(Color.GRAY);
 		g.fillRect(Game.WIDTH / 2 - 500, Game.HEIGHT - 150, 1000, 50);
@@ -58,110 +81,49 @@ public class BossSeparates extends GameObject {
 		g.fillRect(Game.WIDTH / 2 - 500, Game.HEIGHT - 150, this.health/2, 50);
 		g.setColor(Color.WHITE);
 		g.drawRect(Game.WIDTH / 2 - 500, Game.HEIGHT - 150, 1000, 50);
-
 	}
 
+	
 	@Override
 	public Rectangle getBounds() {
 		return new Rectangle((int) this.x, (int) this.y, size, size);
 	}
-
-	public void attackPlayer() {
-		this.x += velX;
-		//this.y += velY;
-		if (this.x <= 0 || this.x >= Game.WIDTH - this.size)
-			velX *= -1;
-		//if (this.y <= 0 || this.y >= Game.HEIGHT - this.size)
-			//velY *= -1;
-	}*/
 	
-	private Handler handler;
-	private int timer = 80;
-	private int timer2 = 50;
-	Random r = new Random();
-	private Image img;
-	private int spawn;
-
-	public BossSeparates(ID id, Handler handler) {
-		super(Game.WIDTH / 2 - 48, -120, id);
-		this.handler = handler;
-		velX = 0;
-		velY = 1.5;
-		img = getImage("images/finalBossGIF.gif");
-		this.health = 1000;//full health is 1000
+	
+	private boolean clampPosition(double _x, double _y, double error) {
+		if(this.x > (target_x + error) || this.x < (target_x - error)) return false;
+		if(this.y > (target_y + error) || this.y < (target_y - error)) return false;
+		return true;
 	}
-
-	@Override
-	public void tick() {
-		this.x += velX;
-		this.y += velY;
-
-		if (timer <= 0)
-			velY = 0;
-		else
-			timer--;
-		//drawFirstBullet();
-		if (timer <= 0)
-			timer2--;
-		if (timer2 <= 0) {
-			if (velX == 0)
-				velX = 8;
-			this.isMoving = true;
-			spawn = r.nextInt(5);
-			if (spawn == 0) {
-				//handler.addObject(new EnemyBossBullet((int) this.x + 48, (int) this.y + 96, ID.EnemyBossBullet, handler));
-				this.health -= 3;
-			}
+	
+	
+	public void attackPlayer() {
+		if(!onPath) {
+			onPath = true;
+			target_x = (int) (Math.random()*(Game.WIDTH - size));
+			target_y = (int) (Math.random()*(Game.HEIGHT - size));
+			double dist_x = target_x - this.x;
+			double dist_y = target_y - this.y;
+			angle = Math.atan(dist_y/dist_x);
+			double dist = Math.sqrt(dist_x*dist_x + dist_y*dist_y);
+			this.velX = speed*dist_x/dist;
+			this.velY = speed*dist_y/dist;
 		}
-
-		//if (this.y <= 0 || this.y >= Game.HEIGHT - 40) 
-			//velY *= -1;
-		if (this.x <= 0 || this.x >= Game.WIDTH - 96)
-			velX *= -1;
+		this.x += this.velX;
+		this.y += this.velY;
+		if(clampPosition(target_x, target_y, 5)) onPath = false;
 		
-
-		// handler.addObject(new Trail(x, y, ID.Trail, Color.red, 96, 96, 0.025,
-		// this.handler));
-
-	}
-
-	public Image getImage(String path) {
-		Image image = null;
-		try {
-			URL imageURL = Game.class.getResource(path);
-			image = Toolkit.getDefaultToolkit().getImage(imageURL);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+		//decrements fireTimer once every tick
+		if (fireTimer >= 0) fireTimer--;
+		//shoots a fireball with 15 velocity when fireTimer is at 10 or 0, and sets fireTimer back to 20
+		if (fireTimer <= 0 || fireTimer == 10) {
+			handler.addObject(new FireballAttack(this.x, this.y, ID.FireballAttack, handler, player, 15));
+			if (fireTimer <= 0 ) fireTimer = 20;
 		}
-
-		return image;
-	}
-
-	@Override
-	public void render(Graphics g) {
-		//g.setColor(Color.LIGHT_GRAY);
-		//g.drawLine(0, 96, Game.WIDTH, 96);
-		g.drawImage(img, (int) this.x, (int) this.y, 96, 96, null);
-
-		// HEALTH BAR
-		g.setColor(Color.GRAY);
-		g.fillRect(Game.WIDTH / 2 - 500, Game.HEIGHT - 150, 1000, 50);
-		g.setColor(Color.RED);
-		g.fillRect(Game.WIDTH / 2 - 500, Game.HEIGHT - 150, this.health, 50);
-		g.setColor(Color.WHITE);
-		g.drawRect(Game.WIDTH / 2 - 500, Game.HEIGHT - 150, 1000, 50);
-
-	}
-
-	@Override
-	public Rectangle getBounds() {
-		return new Rectangle((int) this.x, (int) this.y, 96, 96);
-	}
-
-	// allows for grey line to be drawn, as well as first bullet shot
-	public void drawFirstBullet() {
-		if (timer2 == 1)
-			handler.addObject(new EnemyBossBullet((int) this.x + 48, (int) this.y + 96, ID.EnemyBossBullet, handler));
+		//shoots a fireball with 20 velocity when fireTimer is at 15 or 5
+		if (fireTimer == 5 || fireTimer == 15) {
+			handler.addObject(new FireballAttack(this.x, this.y, ID.FireballAttack, handler, player, 20));
+		}
 	}
 	
 }

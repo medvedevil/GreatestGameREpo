@@ -94,10 +94,9 @@ public class BossEye extends GameObject {
 
 	public void attackPlayer() {
 		if (player != null) {
-			double diffY = (this.y - player.getY());
-			double diffX = (this.x - player.getX());
-			double distance = Math.sqrt(((this.x - this.player.getX()) * (this.x - this.player.getX()))
-					+ ((this.y - this.player.getY()) * (this.y - this.player.getY())));
+			double diffY = this.y - player.getY();
+			double diffX = this.x - player.getX();
+			double distance = Math.sqrt(diffX*diffX + diffY*diffY);
 			this.velX = (this.speed / distance) * diffX;
 			this.velY = (this.speed / distance) * diffY;
 			this.x += this.velX;

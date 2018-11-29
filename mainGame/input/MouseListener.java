@@ -72,7 +72,6 @@ public class MouseListener extends MouseAdapter {
 					game.gameState = STATE.Menu;
 				}
 			}
-
 			else if (game.gameState == STATE.Wave) {
 			}
 			else if (game.gameState == STATE.Multiplayer) {
@@ -217,6 +216,14 @@ public class MouseListener extends MouseAdapter {
 					leaderboard.reset();
 					game.gameState = STATE.Menu;
 				}
+			} else if(game.gameState == STATE.WonWaves) {
+				upgrades.resetUpgrades();
+				spawner.restart();
+				spawner.addLevels();
+				spawner2.restart();
+				spawner2.addLevels();
+				Spawn1to5.LEVEL_SET = 1;
+				game.gameState = STATE.Menu;
 			}
 		} else { // game is paused
 			// PauseMenu-> Resume

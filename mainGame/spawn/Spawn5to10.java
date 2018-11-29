@@ -349,30 +349,15 @@ public class Spawn5to10 {
 			}
 
 		}
-		// WINNER
-		// else if(levelNumber) {
-		// levelTimer --;
-		// if(tempCounter < 1) {
-		// handler.addObject(new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200,
-		// "Same levels...", ID.Levels1to10Text));
-		// handler.addObject(new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2,
-		// "...but a little harder now", ID.Levels1to10Text));
-		// tempCounter++;
-		// }
-		// if(levelTimer <= 0) {
-		// handler.clearEnemies();
-		// tempCounter = 0;
-		// levelNumber = levels.get(index);
-		// }
-		//
-		// }
-
 	}
 
 	public void skipLevel() {
 		if (levelsLeft == 1) {
-			tempCounter = 0;
-			levelNumber = 101;
+			this.hud.setLevel(11);
+			handler.clearEnemies();
+			player.resetCount();
+			Spawn1to5.LEVEL_SET ++;
+			game.gameState = STATE.Upgrade;
 		} else if (levelsLeft > 1) {
 			timer = 10;
 			levelsLeft--;
