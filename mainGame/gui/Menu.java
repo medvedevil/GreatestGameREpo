@@ -28,11 +28,7 @@ public class Menu {
 	private HUD hud;
 	private Image img;
 	private Image img2;
-	private Image willpic;
-	private Image juliopic;
-	private Image mattpic;
-	private Image kylepic;
-	private Image eamonpic;
+	private Image raytracing;
 	private Image hoffmanpic;
 	private int timer;
 	private Random r;
@@ -160,23 +156,16 @@ public class Menu {
 			g.drawRect(566, 590, 133, 42);
 			g.drawString("Back", 613, 620);
 		}
+		//If the user clicks on the credit menu option
 		else if (game.gameState == STATE.Credits) {
 			
 			g.drawImage(img, 0, 0, Game.WIDTH, Game.HEIGHT, null);
-			g.drawImage(mattpic, 0, 0, 426 , 360, null);
-			g.drawImage(willpic, 426, 0, 426 , 360, null);
-			g.drawImage(juliopic, 852, 0, 426 , 360, null);
-			g.drawImage(kylepic, 0, 360, 426 , 360, null);
-			g.drawImage(eamonpic, 426, 360, 426 , 360, null);
+			g.drawImage(raytracing, 852, 0, 426 , 360, null);
 			g.drawImage(hoffmanpic, 852, 360, 426 , 360, null);
 			handler.render(g);
 
 			img = null;
-			willpic = null;
-			juliopic = null;
-			mattpic = null;
-			kylepic = null;
-			eamonpic = null;
+			raytracing = null;
 			hoffmanpic = null;
 
 			try {
@@ -186,14 +175,8 @@ public class Menu {
 				e.printStackTrace();
 			}
 			try {
-				URL imageURL = Game.class.getResource("images/willpic.jpg");
-				willpic = Toolkit.getDefaultToolkit().getImage(imageURL);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			try {
-				URL imageURL = Game.class.getResource("images/juliopic.jpg");
-				juliopic = Toolkit.getDefaultToolkit().getImage(imageURL);
+				URL imageURL = Game.class.getResource("images/drawing.png");
+				raytracing = Toolkit.getDefaultToolkit().getImage(imageURL);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -203,24 +186,7 @@ public class Menu {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			try {
-				URL imageURL = Game.class.getResource("images/mattpic.jpg");
-				mattpic = Toolkit.getDefaultToolkit().getImage(imageURL);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			try {
-				URL imageURL = Game.class.getResource("images/kylepic.jpg");
-				kylepic = Toolkit.getDefaultToolkit().getImage(imageURL);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			try {
-				URL imageURL = Game.class.getResource("images/eamonpic.jpg");
-				eamonpic = Toolkit.getDefaultToolkit().getImage(imageURL);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			
 			
 			Font font = new Font("impact", 1, 33);
 			Font font2 = new Font("impact", 1, 20);
@@ -229,30 +195,29 @@ public class Menu {
 			g.setColor(Color.WHITE);
 			g.drawString("Credits", 575, 46);
 
-			g.drawString("Team A1 - Can be found spending their $50 Amazon giftcards online.", 150, 100);
+			g.drawString("Team A1 - Can be found spending their hackathon prize money online.", 100, 100);
 			g.setFont(font);
 			g.drawString("Team Members:", 100, 160);
 			g.setFont(font2);
-			g.drawString(
-					"Matt \"Scrub Daddy\" Chieco - \"I'm at the tippidy top of the mountain and im only half way up, think about it.\"",
-					100, 190);
-			g.drawString("Can be found benching at the gym.",
-					100, 220);
-			g.drawString("Will \"Head Developer\" Eccles - Drinks a refreshing Mtn Dew every class.", 100, 275);
-			g.drawString("Can be found where ever cacti are located.", 100, 305);
+						
+			g.drawString("Massimo \"Srum Master\" Angelillo - Huge fan of computer architecture class", 100, 190);
+			g.drawString("Can be found at home working on his ray tracing project in scala ---------------------------------->", 100, 220);
+						
+			g.drawString("Kevin \"Git-Master\" Sangurima - Can't wait for SSBU to come out", 100, 275);
+			g.drawString("Can be found in his room trying to learn new programming languages", 100, 305);
+						
+			g.drawString("Matthew \"The Quite One\" Crawford - Always came in clutch in the last minute", 100, 360);
+			g.drawString("Can be found getting a new computer", 100, 390);
+						
+			g.drawString("Charles \"The Drifting Wind/Team A1's Manager\" Zhu - Best manager a team could have", 100, 445);
+			g.drawString("Can be found enjoying his new car in QU's north lot", 100, 475);
+						
+			g.drawString("Mike Medvedev - Trying to record songs professionally", 100, 530);
+			g.drawString("Can be found in his room playing the guitar", 100, 560);
 			
-			g.drawString("Julio \"Pause Menu\" Argueta - He hates olives.", 100, 360);
-			g.drawString("Can be found playing Super Smash Bros.", 100, 390);
-			
-			g.drawString("Kyle \"Mouse Listner\" Gorman - Likes long walks on the beach, pina coladas and gettin caught in the rain.", 100, 445);
-			g.drawString("Can be found climbing some kind of wall.", 100, 475);
-			
-			g.drawString("Eamon \"HTML\" Duffy - Is up to date on One Piece", 100, 530);
-			g.drawString("Can be found on Instagram @eamon_duffy.", 100, 560);
-			
-			g.drawString("Professor \"Manager of the Best Team\" Hoffman - \"I LOVE CHARTS AND TABLES!!\"", 100, 615);
-			g.drawString("Can be found stealing team A1's $50 giftcards.", 100, 640);
-			
+			g.drawString("Professor Hoffman - \"I LOVE CHARTS AND TABLES!!\"", 100, 615);
+			g.drawString("Thanks to: Matt Chieco, Will Eccles, Julio Argueta, Kyle Gorman, and Eamon Duffy for working ", 100, 640);
+			g.drawString("on this project the previous semester", 100, 665);
 			
 			
 			g.setColor(Color.white);
