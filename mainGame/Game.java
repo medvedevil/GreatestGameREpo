@@ -49,6 +49,7 @@ public class Game extends Canvas implements Runnable {
 	public SoundClip soundClip;
 	private Leaderboard leaderboard;
 
+	private WonWaves wonWaves;
 	private SpawnBosses spawnBosses;
 	private SpawnMultiplayer spawnMultiplayer;
 	private JFrame frame;
@@ -72,7 +73,7 @@ public class Game extends Canvas implements Runnable {
 	 */
 	public enum STATE {
 		Menu, Help, Join, Host, Wave, GameOver, Upgrade, Bosses, Survival, Multiplayer, 
-		Leaderboard, Color, LeaderboardDisplay, Credits
+		Leaderboard, Color, LeaderboardDisplay, Credits, WonWaves
 	};
 
 	/**
@@ -98,6 +99,7 @@ public class Game extends Canvas implements Runnable {
 		upgradeScreen = new UpgradeScreen(this, this.handler, this.hud);
 		upgrades = new Upgrades(this, this.handler, this.hud, this.upgradeScreen, this.player, this.spawner, this.spawner2, this.spawner3, this.spawner4);
 		gameOver = new GameOver(this, this.handler, this.hud, player);
+		wonWaves = new WonWaves(this.handler, this.hud);
 		pauseMenu = new PauseMenu();
 		leaderboardList = new String[6][2];
 		leaderboard = new Leaderboard(this, hud, leaderboardList);
@@ -263,6 +265,8 @@ public class Game extends Canvas implements Runnable {
 					soundplayer = new SoundPlayer("sounds/135.mp3", true);
 					soundplayer.start();
 				}
+			} else if (gameState == STATE.WonWaves) {
+				wonWaves.tick();
 			}
 		}
 
@@ -322,6 +326,8 @@ public class Game extends Canvas implements Runnable {
 				} else if (gameState == STATE.GameOver) {// game is over, draw the game
 					// over screen
 					gameOver.render(g);
+				} else if (gameState == STATE.WonWaves) {// game is over, draw the game
+					wonWaves.render(g);
 				} else if (gameState == STATE.Leaderboard) {
 					leaderboard.paint(g);
 				} else if (gameState == STATE.Color) {
