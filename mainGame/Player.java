@@ -135,7 +135,7 @@ public class Player extends GameObject {
 					|| tempObject.getId() == ID.EnemyBurst || tempObject.getId() == ID.EnemyShooter ||tempObject.getId() == ID.EnemyTracker 
 					|| tempObject.getId() == ID.EnemyExpand || tempObject.getId() == ID.EnemyMiniShooter 
 					|| tempObject.getId() == ID.EnemyMiniShooterBullet || tempObject.getId() == ID.EnemyPorcupine 
-					|| tempObject.getId() == ID.EnemyMove) {// tempObject is an enemy
+					|| tempObject.getId() == ID.EnemyMove || tempObject.getId() == ID.FireballAttack) {// tempObject is an enemy
 				// collision code
 				if (getBounds().intersects(tempObject.getBounds())) {// player hit an enemy
 					hud.health -= damage;

@@ -18,10 +18,14 @@ import mainGame.*;
  */
 
 public class BossSeparates extends GameObject {
-
+	
+	private Handler handler;
+	private int fireTimer = 20;
+	private Player player;
 	Random r = new Random();
 	private Image img;
 	private int size;
+	
 	private boolean onPath = false;
 	private int target_x = 0;
 	private int target_y = 0;
@@ -30,11 +34,13 @@ public class BossSeparates extends GameObject {
 	
 	public BossSeparates(double x, double y, ID id, Handler handler, Player player, int size, int health, int velX, int velY) {
 		super(x, y, id);
+		this.handler = handler;
 		this.velX = velX;
 		this.velY = velY;
 		img = getImage("images/finalBossGIF.gif");
 		this.health = health;
 		this.size = size;
+		this.player = player;
 	}
 
 	@Override
@@ -99,5 +105,17 @@ public class BossSeparates extends GameObject {
 		this.x += this.velX;
 		this.y += this.velY;
 		if(clampPosition(target_x, target_y, 5)) onPath = false;
+		
+		//decrements fireTimer once every tick
+		if (fireTimer >= 0) fireTimer--;
+		//shoots a fire ball with 15 velocity when fireTimer is at 10 or 0, and sets fireTimer back to 20
+		if (fireTimer <= 0 || fireTimer == 10) {
+			handler.addObject(new FireballAttack(this.x, this.y, ID.FireballAttack, handler, player, 15));
+			if (fireTimer <= 0 ) fireTimer = 20;
+		}
+		//shoots a fire ball with 20 velocity when fireTimer is at 15 or 5
+		if (fireTimer == 5 || fireTimer == 15) {
+			handler.addObject(new FireballAttack(this.x, this.y, ID.FireballAttack, handler, player, 20));
+		}
 	}
 }
