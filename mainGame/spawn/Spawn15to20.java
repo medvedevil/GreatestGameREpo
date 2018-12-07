@@ -86,7 +86,7 @@ public class Spawn15to20 {
 		 * Please refer to this bit of code to understand how each level works
 		 * 
 		 */
-		else if (levelNumber == 0) {// this is level 1
+		else if (levelNumber == 0) { // this is level 1
 			spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a second
 			levelTimer--;// keep decrementing the level spawnTimer 60 times a second
 			if (tempCounter < 1) {// called only once, but sets the levelTimer to how long we want this level to
@@ -381,7 +381,6 @@ public class Spawn15to20 {
 			}
 		}
 	}
-
 
 	public void skipLevel() {
 		if (levelsRemaining == 1) {

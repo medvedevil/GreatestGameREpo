@@ -1,3 +1,4 @@
+
 package mainGame;
 
 public enum ID {
@@ -35,5 +36,7 @@ public enum ID {
 	EnemyMove, 
 	SeparateBoss, 
 	SeparateBoss2,
-	SeparateBoss3;
+	SeparateBoss3,
+	FireballAttack;
 }
+

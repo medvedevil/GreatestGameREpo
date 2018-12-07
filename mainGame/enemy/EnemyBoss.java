@@ -1,3 +1,4 @@
+
 package mainGame.enemy;
 
 import java.awt.Color;
@@ -31,7 +32,7 @@ public class EnemyBoss extends GameObject {
 		velX = 0;
 		velY = 1.5;
 		img = getImage("images/EnemyBoss.png");
-		this.health = 1000;//full health is 1000
+		this.health = 1000;
 	}
 
 	@Override
@@ -106,3 +107,4 @@ public class EnemyBoss extends GameObject {
 	}
 
 }
+
