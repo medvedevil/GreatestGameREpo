@@ -1,3 +1,4 @@
+
 package mainGame.enemy;
 
 import java.awt.Graphics;
@@ -12,7 +13,7 @@ import mainGame.GameObject;
 import mainGame.Handler;
 import mainGame.ID;
 import mainGame.Player;
-//Hiyah folks
+
 public class FireballAttack extends GameObject {
 		
 		private Handler handler;
@@ -74,3 +75,4 @@ public class FireballAttack extends GameObject {
 		//public static double abs(double a);
 
 	}
+
