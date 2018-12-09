@@ -206,7 +206,7 @@ public class Menu {
 			g.drawString("Kevin \"Git-Master\" Sangurima - Can't wait for SSBU to come out", 100, 275);
 			g.drawString("Can be found in his room trying to learn new programming languages", 100, 305);
 						
-			g.drawString("Matthew \"The Quite One\" Crawford - Always came in clutch in the last minute", 100, 360);
+			g.drawString("Matthew \"The Quiet One\" Crawford - Always came in clutch in the last minute", 100, 360);
 			g.drawString("Can be found getting a new computer", 100, 390);
 						
 			g.drawString("Charles \"The Drifting Wind/Team A1's Manager\" Zhu - Best manager a team could have", 100, 445);
